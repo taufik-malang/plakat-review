@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlakatReview — Ubah Pelanggan Jadi Bintang 5 Google dalam 1 Detik</title>
+<meta name="description" content="Plakat NFC & QR Code pintar untuk minta review Google cuma 1 tap. Aktivasi mandiri dalam 1 menit. Cocok untuk kafe, klinik, salon, bengkel, dan semua bisnis lokal.">
+
+<!-- ============================================= -->
+<!-- Meta Pixel Code — sudah diisi -->
+<!-- ============================================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1115636517639230');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1115636517639230&ev=PageView&noscript=1"/></noscript>
+<!-- ============================================= -->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  :root {
+    --primary: #FF6B00;
+    --primary-dark: #E55A00;
+    --dark: #0F1729;
+    --gray: #64748B;
+    --light: #F8FAFC;
+    --green: #16A34A;
+    --yellow: #FBBF24;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E2E8F0;
+    padding: 12px 0;
+  }
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 800; font-size: 20px; color: var(--dark); }
+  .logo span { color: var(--primary); }
+  .btn-wa-sm {
+    background: var(--green); color: #fff;
+    padding: 10px 20px; border-radius: 50px;
+    font-weight: 600; font-size: 14px;
+    display: flex; align-items: center; gap: 6px;
+    transition: transform 0.2s;
+  }
+  .btn-wa-sm:hover { transform: scale(1.05); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 60px 0 80px;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .badge {
+    display: inline-block;
+    background: #FEF3C7;
+    color: #92400E;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 46px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(180deg, transparent 60%, #FED7AA 60%);
+    padding: 0 4px;
+  }
+  .hero p.sub {
+    font-size: 18px;
+    color: var(--gray);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+  .btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(255,107,0,0.3);
+  }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,107,0,0.4); }
+  .btn-secondary {
+    background: #fff;
+    color: var(--dark);
+    border: 2px solid #E2E8F0;
+  }
+  .btn-secondary:hover { border-color: var(--dark); }
+  .trust-line {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--gray);
+  }
+  .stars { color: var(--yellow); letter-spacing: 2px; }
+
+  .hero-visual {
+    position: relative;
+  }
+  .hero-img {
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    width: 100%;
+    background: #E2E8F0;
+  }
+  .float-card {
+    position: absolute;
+    background: #fff;
+    padding: 14px 18px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px; font-weight: 600;
+    animation: float 3s ease-in-out infinite;
+  }
+  .float-card.c1 { top: 20px; left: -30px; }
+  .float-card.c2 { bottom: 30px; right: -30px; animation-delay: 1.5s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .icon-circle {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .ic-green { background: #DCFCE7; }
+  .ic-orange { background: #FFEDD5; }
+
+  /* ===== SOCIAL PROOF BAR ===== */
+  .proof-bar {
+    background: var(--dark);
+    color: #fff;
+    padding: 24px 0;
+    text-align: center;
+  }
+  .proof-bar p { font-size: 14px; opacity: 0.7; margin-bottom: 12px; }
+  .proof-logos {
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    font-weight: 700; font-size: 15px; opacity: 0.9;
+  }
+
+  /* ===== SECTION ===== */
+  section { padding: 80px 0; }
+  .section-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .section-head h2 {
+    font-size: 36px; font-weight: 800; line-height: 1.2;
+    margin-bottom: 16px; letter-spacing: -0.02em;
+  }
+  .section-head p { font-size: 17px; color: var(--gray); }
+
+  /* ===== SHOWCASE IMAGE ===== */
+  .showcase-img {
+    max-width: 900px; margin: 0 auto;
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid #E2E8F0;
+  }
+
+  /* ===== VIDEO DEMO ===== */
+  .video-wrap {
+    max-width: 800px; margin: 0 auto;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    background: #000;
+  }
+  .video-wrap iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border: 0;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem { background: var(--light); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .problem-card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 20px;
+    border: 1px solid #E2E8F0;
+    text-align: center;
+  }
+  .problem-card .emoji { font-size: 40px; margin-bottom: 16px; }
+  .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .problem-card p { font-size: 15px; color: var(--gray); }
+
+  /* ===== HOW IT WORKS ===== */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .step { text-align: center; }
+  .step-num {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; font-weight: 800;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 24px rgba(255,107,0,0.3);
+  }
+  .step h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+  .step p { font-size: 15px; color: var(--gray); }
+
+  /* ===== BENEFITS ===== */
+  .benefits { background: var(--dark); color: #fff; }
+  .benefits .section-head h2 { color: #fff; }
+  .benefits .section-head p { color: #94A3B8; }
+  .benefit-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  .benefit-item {
+    display: flex; gap: 16px;
+    padding: 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .benefit-item .check {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--primary); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #fff;
+  }
+  .benefit-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .benefit-item p { font-size: 14px; color: #94A3B8; }
+
+  /* ===== PRODUCTS ===== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .product-card {
+    background: #fff;
+    border: 2px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .product-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .product-card.featured { border-color: var(--primary); box-shadow: 0 20px 40px rgba(255,107,0,0.15); }
+  .tag-popular {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--primary); color: #fff;
+    padding: 6px 18px; border-radius: 50px;
+    font-size: 12px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .product-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .product-card .desc { font-size: 14px; color: var(--gray); margin-bottom: 20px; }
+  .price { font-size: 36px; font-weight: 800; color: var(--primary); margin: 16px 0 4px; }
+  .price small { font-size: 16px; color: var(--gray); font-weight: 600; }
+  .price-strike { font-size: 15px; color: #94A3B8; text-decoration: line-through; margin-bottom: 20px; }
+  .product-features {
+    text-align: left; margin: 24px 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .product-features li {
+    list-style: none; font-size: 14px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .product-features li::before {
+    content: "\2713"; color: var(--green); font-weight: 800; flex-shrink: 0;
+  }
+  .btn-block { width: 100%; justify-content: center; }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--light); }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    background: #fff; border-radius: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; text-align: left;
+    padding: 20px 24px;
+    font-size: 16px; font-weight: 700;
+    display: flex; justify-content: space-between; align-items: center;
+    background: #fff;
+    gap: 16px;
+  }
+  .faq-q::after {
+    content: "+"; font-size: 22px; color: var(--primary);
+    transition: transform 0.3s; flex-shrink: 0;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 24px;
+    font-size: 15px; color: var(--gray);
+  }
+  .faq-item.open .faq-a { max-height: 400px; padding: 0 24px 20px; }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta {
+    background: linear-gradient(135deg, var(--primary) 0%, #EA580C 100%);
+    color: #fff; text-align: center;
+  }
+  .final-cta h2 { font-size: 40px; font-weight: 800; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.02em; }
+  .final-cta p { font-size: 18px; opacity: 0.95; margin-bottom: 32px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .final-cta .btn-secondary { background: #fff; color: var(--primary); border: none; }
+  .final-cta .btn-secondary:hover { transform: translateY(-2px); }
+  .urgency {
+    display: inline-block;
+    background: rgba(0,0,0,0.15);
+    padding: 8px 20px; border-radius: 50px;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark); color: #94A3B8;
+    padding: 40px 0 24px;
+    text-align: center;
+    font-size: 14px;
+  }
+  footer .logo { color: #fff; margin-bottom: 12px; }
+  footer p { margin-bottom: 8px; }
+  footer a { color: var(--primary); }
+
+  /* ===== FLOATING WA ===== */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--green); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(22,163,74,0.4);
+    z-index: 99; font-size: 28px;
+    transition: transform 0.25s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; max-width: 400px; margin: 0 auto; }
+    .hero h1 { font-size: 34px; }
+    .hero p.sub { font-size: 16px; }
+    .problem-grid, .steps, .products-grid { grid-template-columns: 1fr; }
+    .benefit-grid { grid-template-columns: 1fr; }
+    .section-head h2 { font-size: 28px; }
+    .final-cta h2 { font-size: 30px; }
+    .float-card { font-size: 12px; padding: 10px 14px; }
+    .float-card.c1 { left: 0; }
+    .float-card.c2 { right: 0; }
+    section { padding: 56px 0; }
+    .hero { padding: 32px 0 56px; }
+    .proof-logos { gap: 20px; font-size: 13px; }
+    .cta-group { flex-direction: column; }
+    .cta-group .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container nav">
+    <div class="logo">Plakat<span>Review</span></div>
+    <a href="#order" class="btn-wa-sm">📲 Order Sekarang</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">🔒 Aktivasi Mandiri dalam 1 Menit</span>
+      <h1>Ubah Pelanggan Jadi <span class="highlight">Bintang 5 Google</span> dalam 1 Detik</h1>
+      <p class="sub">Plakat NFC & QR Code pintar yang langsung membuka form review Google Maps. Cukup 1 tap, tanpa aplikasi, tanpa ribet. Cocok untuk kafe, klinik, salon, bengkel, dan semua bisnis lokal.</p>
+      <div class="cta-group">
+        <a href="#order" class="btn btn-primary">💬 Pesan Sekarang</a>
+        <a href="#produk" class="btn btn-secondary">Lihat Harga</a>
+      </div>
+      <div class="trust-line">
+        <span>✅</span>
+        <span>Tanpa langganan bulanan • Sekali beli, pakai selamanya</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-img" src="review1.jpg" alt="Plakat Google Review NFC">
+      <div class="float-card c1">
+        <div class="icon-circle ic-green">📈</div>
+        <div>Review masuk<br><strong>3x lebih cepat</strong></div>
+      </div>
+      <div class="float-card c2">
+        <div class="icon-circle ic-orange">⭐</div>
+        <div>Rating naik<br><strong>4.2 → 4.9</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF BAR ============ -->
+<div class="proof-bar">
+  <div class="container">
+    <p>Solusi review untuk berbagai jenis bisnis lokal</p>
+    <div class="proof-logos">
+      <span>☕ Kafe & Resto</span>
+      <span>💈 Salon & Barbershop</span>
+      <span>🦷 Klinik Gigi</span>
+      <span>🔧 Bengkel</span>
+      <span>🏨 Hotel & Villa</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SHOWCASE IMAGE ============ -->
+<section style="background: #fff;">
+  <div class="container">
+    <div class="section-head">
+      <h2>Lihat Bagaimana Ini Bekerja di Bisnis Nyata</h2>
+      <p>Plakat kami dirancang untuk menyatu dengan meja kasir atau meja pelanggan Anda.</p>
+    </div>
+    <div class="showcase-img">
+      <img src="review2.jpg" alt="Plakat Google Review di Meja Kafe">
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO DEMO ============ -->
+<section style="background: #0F1729; color: #fff;">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="color: #fff;">Lihat Cara Kerjanya dalam 15 Detik</h2>
+      <p style="color: #94A3B8;">Cukup tap, langsung ke form review Google Maps. Tanpa aplikasi tambahan.</p>
+    </div>
+    <div class="video-wrap">
+      <!-- ============================================= -->
+      <!-- GANTI: VIDEO_ID_ANDA dengan ID video YouTube  -->
+      <!-- Contoh URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ -->
+      <!-- Maka VIDEO_ID_ANDA = dQw4w9WgXcQ              -->
+      <!-- ============================================= -->
+      <iframe 
+        src="https://www.youtube.com/embed/VIDEO_ID_ANDA?rel=0" 
+        title="Demo PlakatReview"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p style="text-align: center; color: #94A3B8; font-size: 14px; margin-top: 20px;">
+      Video demo lengkap — tap kartu, redirect otomatis ke Google Review
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem">
+  <div class="container">
+    <div class="section-head">
+      <h2>Kenapa Review Google Itu Penting Banget?</h2>
+      <p>90% orang membaca review online sebelum memilih bisnis. Tapi dapat review dari pelanggan itu susah banget...</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="emoji">😩</div>
+        <h3>Pelanggan Malas Nulis Review</h3>
+        <p>Harus buka Google Maps, cari nama toko, klik review, baru tulis. Ribet! Akhirnya nggak jadi.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">📉</div>
+        <h3>Rating Stuck di Bawah Kompetitor</h3>
+        <p>Padahal pelayanan bagus, tapi karena review sedikit, calon pelanggan malah pilih kompetitor.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">💸</div>
+        <h3>Harus Bayar Mahal Buat Review</h3>
+        <p>Kasih diskon atau gratis produk cuma buat minta review? Itu namanya buang-buang margin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS (Cara Pakai) ============ -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Cuma 3 Langkah Simpel</h2>
+      <p>Nggak perlu teknisi, nggak perlu setting rumit. Sekali pasang, langsung jalan.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tap Kartu ke HP-mu</h3>
+        <p>Dekatkan kartu ke belakang HP. Browser otomatis terbuka, langsung ke halaman aktivasi.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Isi Data Bisnismu</h3>
+        <p>Ketik nama bisnis, tempel link Google Review, buat PIN 4 digit. Selesai dalam 1 menit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Taruh di Meja Kasir</h3>
+        <p>Pelanggan tinggal tap atau scan QR — form review Google langsung terbuka. Review masuk!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-head">
+      <h2>Kenapa PlakatReview?</h2>
+      <p>Bukan sekadar plakat biasa. Ini investasi reputasi bisnismu.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>NFC + QR Code Sekaligus</h4>
+          <p>Kompatibel untuk semua HP, baik yang support NFC maupun yang scan QR.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>Tanpa Aplikasi Tambahan</h4>
+          <p>Pelanggan cukup tap atau scan, browser otomatis terbuka. Sesimpel itu.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>Aktivasi Mandiri, Instan</h4>
+          <p>Kamu isi sendiri data bisnis & link review. Kartu langsung aktif saat itu juga.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>Tahan Lama & Anti Air</h4>
+          <p>Material akrilik premium, tidak mudah rusak, cocok untuk pemakaian jangka panjang.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>Praktis, Nggak Butuh Listrik</h4>
+          <p>NFC pasif, tidak perlu baterai atau kabel. Taruh dan lupakan.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="check">✓</div>
+        <div>
+          <h4>Bisa Ganti Link Kapan Saja</h4>
+          <p>Pindah outlet atau ganti link review? Bisa diubah sendiri pakai PIN, tanpa hubungi admin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="produk">
+  <div class="container">
+    <div class="section-head">
+      <h2>Pilih Paket Sesuai Kebutuhanmu</h2>
+      <p>Semua paket sudah termasuk setup & free konsultasi.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <h3>Starter</h3>
+        <p class="desc">Cocok untuk bisnis kecil / 1 outlet</p>
+        <div class="price"><small>Rp</small>149K</div>
+        <div class="price-strike">Rp 249.000</div>
+        <ul class="product-features">
+          <li>1 Plakat Akrilik 10x15cm</li>
+          <li>NFC + QR Code</li>
+          <li>Aktivasi Mandiri</li>
+          <li>Free Design Sederhana</li>
+        </ul>
+        <a href="#order" class="btn btn-primary btn-block">Pesan Sekarang</a>
+      </div>
+
+      <div class="product-card featured">
+        <span class="tag-popular">🔥 PALING LARIS</span>
+        <h3>Bisnis</h3>
+        <p class="desc">Paling pas untuk kafe, resto, salon</p>
+        <div class="price"><small>Rp</small>249K</div>
+        <div class="price-strike">Rp 399.000</div>
+        <ul class="product-features">
+          <li>2 Plakat Akrilik 10x15cm</li>
+          <li>NFC + QR Code</li>
+          <li>Aktivasi Mandiri</li>
+          <li>Custom Logo & Warna Brand</li>
+          <li>Free Standing Holder</li>
+        </ul>
+        <a href="#order" class="btn btn-primary btn-block">Pesan Sekarang</a>
+      </div>
+
+      <div class="product-card">
+        <h3>Premium</h3>
+        <p class="desc">Untuk multi-outlet / franchise</p>
+        <div class="price"><small>Rp</small>449K</div>
+        <div class="price-strike">Rp 699.000</div>
+        <ul class="product-features">
+          <li>5 Plakat Akrilik 10x15cm</li>
+          <li>NFC + QR Code</li>
+          <li>Aktivasi Mandiri</li>
+          <li>Custom Logo & Warna Brand</li>
+          <li>Free Standing Holder</li>
+          <li>Prioritas Support 24/7</li>
+        </ul>
+        <a href="#order" class="btn btn-primary btn-block">Pesan Sekarang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARA ORDER ============ -->
+<section style="background: var(--light);">
+  <div class="container">
+    <div class="section-head">
+      <h2>Cara Order dalam 3 Langkah</h2>
+      <p>Prosesnya simpel, kamu nggak perlu paham teknis apapun.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pilih Paket & Chat WhatsApp</h3>
+        <p>Klik tombol "Chat WhatsApp" di halaman ini, bilang mau paket apa. Tim kami balas cepat.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Kami Kirim Kartu ke Alamatmu</h3>
+        <p>Bayar via transfer/COD, kami produksi & kirim kartu dalam 2-5 hari kerja.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Aktivasi Sendiri, Langsung Pakai</h3>
+        <p>Tap kartu ke HP-mu, isi form aktivasi 1 menit, kartu siap dipakai di tokomu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <h2>Pertanyaan yang Sering Ditanya</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Apakah semua HP bisa tap NFC-nya?</button>
+        <div class="faq-a">HP Android dan iPhone modern (dari tahun 2017 ke atas) sudah support NFC. Tapi tenang, plakat kami juga dilengkapi QR Code, jadi kalau HP-nya nggak support NFC, cukup scan QR-nya seperti biasa.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah saya perlu teknisi untuk setting?</button>
+        <div class="faq-a">Tidak perlu. Aktivasi dilakukan sendiri oleh kamu saat kartu diterima — cukup tap kartu ke HP, isi form singkat (nama bisnis, link Google Review, PIN), dan kartu langsung aktif dalam 1 menit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bisa custom logo dan warna sesuai brand saya?</button>
+        <div class="faq-a">Bisa! Untuk paket Bisnis dan Premium, kamu bisa kirimkan file logo dan kode warna brand kamu. Kami akan buat desain yang cocok dan kirimkan preview sebelum dicetak.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama proses pengiriman?</button>
+        <div class="faq-a">Untuk plakat tanpa custom, proses 1-2 hari kerja lalu dikirim. Untuk yang custom logo, sekitar 3-5 hari kerja. Pengiriman menggunakan JNE/J&T/SiCepat, bisa sampai 1-3 hari tergantung lokasi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bagaimana kalau pelanggan mau kasih review bintang 1?</button>
+        <div class="faq-a">Plakat ini hanya mempermudah proses, tidak bisa memaksa rating. Namun, riset menunjukkan bahwa kemudahan akses review justru meningkatkan jumlah review positif, karena pelanggan yang puas lebih cenderung review ketika prosesnya mudah.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ada garansi?</button>
+        <div class="faq-a">Ya, ada garansi 7 hari untuk kerusakan pengiriman. Jika plakat rusak saat diterima, kami akan ganti gratis. Untuk masalah link atau aktivasi, support kami siap bantu kapan pun.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta" id="order">
+  <div class="container">
+    <span class="urgency">🎁 Free konsultasi & setup untuk 10 pembeli pertama</span>
+    <h2>Siap Naikkan Rating Google Bisnismu?</h2>
+    <p>Konsultasi gratis dulu juga boleh. Tim kami siap bantu kamu pilih paket yang paling cocok.</p>
+    <div class="cta-group" style="justify-content: center;">
+      <a href="https://wa.me/6285230502844?text=Halo%20saya%20tertarik%20dengan%20PlakatReview" class="btn btn-secondary" target="_blank">💬 Chat WhatsApp Sekarang</a>
+      <a href="#produk" class="btn" style="background: rgba(0,0,0,0.2); color: #fff;">Lihat Paket Lagi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="logo">Plakat<span style="color: var(--primary);">Review</span></div>
+    <p>Solusi review Google untuk bisnis lokal Indonesia.</p>
+    <p>© 2025 PlakatReview. Semua hak dilindungi.</p>
+    <p><a href="#">Instagram</a> · <a href="#">TikTok</a> · <a href="https://wa.me/6285230502844">WhatsApp</a></p>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WA ============ -->
+<a href="https://wa.me/6285230502844?text=Halo%20saya%20tertarik%20dengan%20PlakatReview" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Track WhatsApp click ke Meta Pixel
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact');
+      }
+    });
+  });
+
+  // Track scroll ke 50% (retargeting audience)
+  var scrolled = false;
+  window.addEventListener('scroll', function() {
+    if (!scrolled && window.scrollY > document.body.scrollHeight * 0.5) {
+      scrolled = true;
+      if (typeof fbq === 'function') {
+        fbq('track', 'ViewContent', { content_name: 'Scroll 50%' });
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

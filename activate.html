@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Aktivasi Kartu NFC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.4s ease-out; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-orange-50 via-white to-blue-50 min-h-screen flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md">
+
+    <!-- Header Brand -->
+    <div class="text-center mb-6">
+      <div class="inline-block font-extrabold text-2xl text-gray-800">
+        Plakat<span class="text-orange-500">Review</span>
+      </div>
+    </div>
+
+    <!-- Card Form -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-in-up">
+
+      <!-- Title -->
+      <div class="text-center mb-6">
+        <div class="text-5xl mb-3">🎴</div>
+        <h1 class="text-2xl font-bold text-gray-800">Aktivasi Kartu</h1>
+        <p class="text-sm text-gray-500 mt-2">
+          Kode Kartu: <span id="cardCodeLabel" class="font-mono font-semibold text-blue-600">-</span>
+        </p>
+      </div>
+
+      <!-- Alert Box -->
+      <div id="alert" class="hidden mb-5 p-3 rounded-lg text-sm"></div>
+
+      <!-- Form -->
+      <form id="activationForm" class="space-y-4">
+
+        <!-- Nama Bisnis -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Nama Bisnis <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="businessName" required maxlength="120"
+            placeholder="Contoh: Bengkel Abadi Motor Klari"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition">
+        </div>
+
+        <!-- Link Google Review -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Link Google Review <span class="text-red-500">*</span>
+          </label>
+          <input type="url" id="reviewUrl" required
+            placeholder="https://g.page/r/xxxxx/review"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition">
+          <p class="text-xs text-gray-500 mt-1.5 leading-relaxed">
+            Buka Google Maps bisnis Anda → klik <strong>"Bagikan"</strong> → pilih <strong>"Tulis ulasan"</strong> → copy link-nya.
+          </p>
+        </div>
+
+        <!-- PIN -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Buat PIN (4 digit) <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="pin" required pattern="\d{4}" inputmode="numeric" maxlength="4"
+            placeholder="1234"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none font-mono text-center text-xl tracking-widest transition">
+          <p class="text-xs text-gray-500 mt-1.5">
+            ⚠️ <strong>Simpan PIN ini</strong> — dipakai untuk edit data di masa depan.
+          </p>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitBtn"
+          class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-semibold py-3 rounded-lg transition disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-orange-500/30">
+          Aktifkan Kartu
+        </button>
+
+      </form>
+
+      <!-- Footer note -->
+      <p class="text-xs text-gray-400 text-center mt-6 leading-relaxed">
+        Dengan mengaktivasi, Anda setuju bahwa link Google Review akan dibuka otomatis saat pelanggan tap kartu.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <p class="text-center text-xs text-gray-400 mt-6">
+      © 2025 PlakatReview
+    </p>
+
+  </div>
+
+  <script type="module" src="./js/activate.js"></script>
+</body>
+</html>

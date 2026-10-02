@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Kelola Kartu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.4s ease-out; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-orange-50 via-white to-blue-50 min-h-screen flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md">
+
+    <!-- Header Brand -->
+    <div class="text-center mb-6">
+      <div class="inline-block font-extrabold text-2xl text-gray-800">
+        Plakat<span class="text-orange-500">Review</span>
+      </div>
+    </div>
+
+    <!-- Card Form -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-in-up">
+
+      <!-- Title -->
+      <div class="text-center mb-6">
+        <div class="text-5xl mb-3">⚙️</div>
+        <h1 class="text-2xl font-bold text-gray-800">Kelola Kartu</h1>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+          Masukkan kode kartu & PIN untuk mengubah data bisnis Anda.
+        </p>
+      </div>
+
+      <!-- Alert Box -->
+      <div id="alert" class="hidden mb-5 p-3 rounded-lg text-sm"></div>
+
+      <!-- Step 1: Verify PIN -->
+      <form id="verifyForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Kode Kartu <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="cardCode" required
+            placeholder="Contoh: REV0001"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none font-mono uppercase transition">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            PIN <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="pin" required maxlength="4" inputmode="numeric" pattern="\d{4}"
+            placeholder="••••"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none font-mono text-center text-xl tracking-widest transition">
+        </div>
+
+        <button type="submit" id="verifyBtn"
+          class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold py-3 rounded-lg transition disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-blue-500/30">
+          Verifikasi PIN
+        </button>
+      </form>
+
+      <!-- Step 2: Edit Form (hidden sampai PIN benar) -->
+      <form id="editForm" class="hidden space-y-4 pt-5 border-t border-gray-200">
+        <p class="text-sm text-green-700 bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+          ✅ PIN benar. Silakan ubah data di bawah.
+        </p>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Nama Bisnis <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="businessName" required maxlength="120"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">
+            Link Google Review <span class="text-red-500">*</span>
+          </label>
+          <input type="url" id="reviewUrl" required
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition">
+        </div>
+
+        <button type="submit" id="saveBtn"
+          class="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold py-3 rounded-lg transition disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-green-500/30">
+          Simpan Perubahan
+        </button>
+      </form>
+
+      <!-- Footer note -->
+      <p class="text-xs text-gray-400 text-center mt-6 leading-relaxed">
+        Lupa PIN? Hubungi admin untuk reset.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <p class="text-center text-xs text-gray-400 mt-6">
+      © 2025 PlakatReview
+    </p>
+
+  </div>
+
+  <script type="module" src="./js/manage.js"></script>
+</body>
+</html>
